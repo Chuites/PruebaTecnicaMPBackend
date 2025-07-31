@@ -2,6 +2,15 @@ const casoService = require('../services/casoService');
 const logService = require('../services/logService');
 const { poolPromise } = require('../db/connection');
 
+const listarCasos = async (req, res) => {
+    try {
+        const casos = await casoService.listarCasos();
+        res.json(casos);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
 const crearCaso = async (req, res) => {
     try {
         await casoService.insertarCaso(req.body);
@@ -53,4 +62,4 @@ const reasignar = async (req, res) => {
     }
 };
 
-module.exports = { crearCaso, cambiarEstado, reasignar };
+module.exports = { crearCaso, cambiarEstado, reasignar, listarCasos };

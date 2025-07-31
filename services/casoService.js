@@ -27,8 +27,16 @@ async function reasignarFiscal(id_caso, nuevo_fiscal) {
         .execute('sp_reasignar_fiscal');
 }
 
+async function listarCasos() {
+    const pool = await poolPromise;
+    const result = await pool.request().execute('sp_listar_casos');
+    return result.recordset;
+}
+
+
 module.exports = {
     insertarCaso,
     actualizarEstadoCaso,
-    reasignarFiscal
+    reasignarFiscal,
+    listarCasos
 };
