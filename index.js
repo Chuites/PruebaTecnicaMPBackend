@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const fiscaliaRoutes = require("./routes/fiscaliaRoutes");
+const fiscalRoutes = require('./routes/fiscalRoutes');
 require("dotenv").config();
 
 const app = express();
@@ -12,6 +13,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/fiscalias", fiscaliaRoutes);
+
+app.use('/api/fiscales', fiscalRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
