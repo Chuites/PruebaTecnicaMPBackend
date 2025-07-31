@@ -19,4 +19,15 @@ async function listarFiscalesPorFiscalia(id_fiscalia) {
     return result.recordset;
 }
 
-module.exports = { insertarFiscal, listarFiscalesPorFiscalia };
+async function autenticarFiscal(correo, password) {
+  const pool = await poolPromise;
+  const result = await pool.request()
+    .input('correo', correo)
+    .input('password_hash', password) // comparación simple por ahora
+    .query('SELECT * FROM Fiscales WHERE correo = @correo AND password_hash = @password_hash');
+
+  return result.recordset[0]; // devuelve fiscal si coincide
+}
+
+
+module.exports = { insertarFiscal, listarFiscalesPorFiscalia, autenticarFiscal };

@@ -10,4 +10,11 @@ async function registrarLogIntento(log) {
         .execute('sp_insertar_log_intento');
 }
 
-module.exports = { registrarLogIntento };
+async function listarLogs() {
+  const pool = await poolPromise;
+  const result = await pool.request().execute('sp_listar_intentos_fallidos');
+  return result.recordset;
+}
+
+
+module.exports = { registrarLogIntento, listarLogs };
