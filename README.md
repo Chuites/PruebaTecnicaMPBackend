@@ -1,6 +1,6 @@
-# Backend - Gestión de Casos Judiciales (Ministerio Público de Guatemala)
+# Backend - Gestión de Casos (Ministerio Público de Guatemala)
 
-Este proyecto es la API RESTful desarrollada con Node.js y Express que permite la gestión y seguimiento de casos judiciales para el Ministerio Público. Utiliza SQL Server como base de datos y procedimientos almacenados para todas las operaciones.
+Este proyecto es la API RESTful desarrollada con Node.js y Express que permite la gestión y seguimiento de casos para el Ministerio Público. Utiliza SQL Server como base de datos y procedimientos almacenados para todas las operaciones.
 
 ## 📦 Tecnologías
 
@@ -14,10 +14,15 @@ Este proyecto es la API RESTful desarrollada con Node.js y Express que permite l
 ## 📁 Estructura
 
 /controllers # Lógica de cada entidad
+
 /routes # Definición de endpoints
+
 /services # Acceso a procedimientos almacenados
+
 /db # Configuración de conexión
+
 index.js # Punto de entrada
+
 .env # Variables de entorno
 
 
@@ -25,8 +30,8 @@ index.js # Punto de entrada
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/usuario/backend-mp.git
-   cd backend-mp
+   git clone https://github.com/Chuites/PruebaTecnicaMPBackend.git
+   cd PruebaTecnicaMPBackend
 
     Instalar dependencias:
 
@@ -35,11 +40,17 @@ npm install
 Configurar .env:
 
 DB_USER=usuario_sql
+
 DB_PASSWORD=clave_sql
+
 DB_SERVER=localhost
+
 DB_DATABASE=nombre_bd
+
 DB_PORT=1433
+
 PORT=3000
+
 
 Ejecutar el servidor:
 
